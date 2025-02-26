@@ -54,13 +54,23 @@ const mensagensDeErro = {
     },
     estado: {
         valueMissing: 'O campo de estado não pode estar vazio.'
+    },
+    telefone: {
+        valueMissing: 'O campo de telefone não pode estar vazio',
+        patternMismatch: 'O Instagram digitado não é válido'
+    
+    },
+    instagram: {
+        valueMissing: 'O campo de instagram não pode estar vazio'
     }
 }
 
 const validadores = {
     dataNascimento:input => validaDataNascimento(input),
     cpf:input => validaCPF(input),
-    cep:input => recuperarCEP(input)
+    cep:input => recuperarCEP(input),
+    telefone:input => validaTelefone(input),
+    instagram:input => validaInstagram(input)
 }
 
 function mostraMensagemDeErro(tipoDeInput, input) {
@@ -90,6 +100,28 @@ function maiorQue18(data) {
     const dataMais18 = new Date(data.getUTCFullYear() + 18, data.getUTCMonth(), data.getUTCDate())
 
     return dataMais18 <= dataAtual
+}
+
+function validaTelefone(input) {
+    const regexTelefone = /^\(\d{2}\) \d{4,5}-\d{4}$/ // Exemplo: (11) 91234-5678
+    let mensagem = ''
+
+    if (!regexTelefone.test(input.value)) {
+        mensagem = 'Formato inválido! Use (XX) XXXXX-XXXX.'
+    }
+
+    input.setCustomValidity(mensagem)
+}
+
+function validaInstagram(input) {
+    const regexInstagram = /^@?[a-zA-Z0-9._]{1,30}$/ // Permite @ opcional e até 30 caracteres
+    let mensagem = ''
+
+    if (!regexInstagram.test(input.value)) {
+        mensagem = 'Usuário inválido! Use apenas letras, números, _ e .'
+    }
+
+    input.setCustomValidity(mensagem)
 }
 
 function validaCPF(input) {

@@ -85,8 +85,14 @@
                 <fieldset>
                     <legend class="formulario__legenda">Contato</legend>
                     <div class="input-container">
-                        <input name="numero" id="numero" class="input" placeholder="(00)00000-0000" data-tipo="numero" required>
-                        
+                        <input name="telefone" id="telefone" class="input" placeholder="Telefone" data-tipo="telefone" required>
+                        <label class="input-label" for="telefone">Telefone</label>
+                        <span class="input-mensagem-erro">Este campo não está válido</span>
+                    </div>
+                    <div class="input-container">
+                        <input name="instagram" id="instagram" class="input" placeholder="Instagram" data-tipo="instagram" required>
+                        <label class="input-label" for="instagram">Instagram</label>
+                        <span class="input-mensagem-erro">Este campo não está válido</span>
                     </div>
                 </fieldset>
                 <button class="botao">Cadastrar</button>
