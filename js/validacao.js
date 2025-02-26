@@ -62,6 +62,9 @@ const mensagensDeErro = {
     },
     instagram: {
         valueMissing: 'O campo de instagram não pode estar vazio'
+    },
+    estoque: {
+        valueMissing: 'O campo de estoque não pode estar vazio'
     }
 }
 
@@ -123,6 +126,7 @@ function validaInstagram(input) {
 
     input.setCustomValidity(mensagem)
 }
+
 
 function validaCPF(input) {
     const cpfFormatado = input.value.replace(/\D/g, '')
