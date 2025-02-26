@@ -81,7 +81,7 @@ function mostraMensagemDeErro(tipoDeInput, input) {
         }
     })
     
-    return mensagem
+    return mensagem || 'Erro desconhecido.'
 }
 
 function validaDataNascimento(input) {
